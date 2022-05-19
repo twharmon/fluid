@@ -2,12 +2,14 @@
 
 ![](https://github.com/twharmon/fluid/workflows/Test/badge.svg)
 
+A css-in-js solution for React.
+
 ## Usage
 Basic example:
 
 ### App.tsx
 
-```ts
+```tsx
 import { useClasses, useGlobalStyles, createStyles } from '@twharmon/fluid-css-in-js'
 import { useTheme, Theme } from '@twharmon/fluid-theme'
 
@@ -33,7 +35,7 @@ export default App
 
 ### index.ts
 
-```ts
+```tsx
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
