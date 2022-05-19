@@ -1,6 +1,6 @@
 import { useLayoutEffect, useMemo } from 'react'
 import { ClassNameMap, PREFIX, Styles } from './useClasses'
-import { toString } from './utils'
+import { cssToStr } from './utils'
 
 const REF_CNT_ATTR = 'data-ref-cnt'
 
@@ -32,7 +32,7 @@ function useSharedClasses<ClassKey extends string>(name: string, make: () => Sty
             style.setAttribute(REF_CNT_ATTR, '1')
             const css = make()
             for (const prop in css) {
-                style.innerText += toString(`${fullName}-${prop}`, css[prop])
+                style.innerText += cssToStr(`${fullName}-${prop}`, css[prop])
             }
             document.head.appendChild(style)
             return () => freeRef(style)

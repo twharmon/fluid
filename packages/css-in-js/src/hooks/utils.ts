@@ -8,7 +8,7 @@ function camel2kebab(s: string): string {
     return s.replace(PASCAL_CASE_RE, '-$1').replace(CAMEL_CASE_RE, '$1-$2').toLowerCase()
 }
 
-export function toString(name: string, props: CSSProps, prefix = '.') {
+export function cssToStr(name: string, props: CSSProps, prefix = '.') {
     let innerText = `${prefix}${name}{`
     const adds: { prop: string, val: CSSProps }[] = []
     const propKeys = Object.keys(props)
@@ -17,12 +17,12 @@ export function toString(name: string, props: CSSProps, prefix = '.') {
             adds.push({ prop: `${propKeys[i].slice(1)}`, val: props[propKeys[i]] })
         } else {
             const val = props[propKeys[i] as keyof CSSProperties]
-            innerText += `${camel2kebab(propKeys[i])}:${val}${i < propKeys.length - 1 ? ';' : ''}`
+            innerText += `${camel2kebab(propKeys[i])}:${val};`
         }
     }
     innerText += `}`
     for (const add of adds) {
-        innerText += toString(`${name}${add.prop}`, add.val)
+        innerText += cssToStr(`${name}${add.prop}`, add.val)
     }
     return innerText
 }
