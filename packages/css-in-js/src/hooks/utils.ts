@@ -11,12 +11,13 @@ function camel2kebab(s: string): string {
 export function toString(name: string, props: CSSProps, prefix = '.') {
     let innerText = `${prefix}${name}{`
     const adds: { prop: string, val: CSSProps }[] = []
-    for (const prop in props) {
-        if (prop.startsWith('&')) {
-            adds.push({ prop: `${prop.slice(1)}`, val: props[prop as keyof CSSProps] as CSSProps })
+    const propKeys = Object.keys(props)
+    for (let i = 0; i < propKeys.length; i++) {
+        if (propKeys[i].startsWith('&')) {
+            adds.push({ prop: `${propKeys[i].slice(1)}`, val: props[propKeys[i]] })
         } else {
-            const val = props[prop as keyof CSSProperties]
-            innerText += `${camel2kebab(prop)}:${val};`
+            const val = props[propKeys[i] as keyof CSSProperties]
+            innerText += `${camel2kebab(propKeys[i])}:${val}${i < propKeys.length - 1 ? ';' : ''}`
         }
     }
     innerText += `}`

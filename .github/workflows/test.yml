@@ -1,0 +1,20 @@
+name: Publish Package to npmjs
+on: pull_request
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - name: Test css-in-js
+        working-directory: ./packages/css-in-js
+        run: |
+          npm ci
+          npm test
+      - name: Test theme
+        working-directory: ./packages/theme
+        run: |
+          npm ci
+          npm test
