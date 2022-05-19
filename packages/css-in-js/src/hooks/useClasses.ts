@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState, CSSProperties } from 'react'
-import { toString } from './utils'
+import { cssToStr } from './utils'
 
 export type CSSProps = CSSProperties | {
     [key: string]: CSSProps
@@ -25,7 +25,7 @@ function useClasses<ClassKey extends string>(make: () => Styles<ClassKey>, deps:
         for (const prop in css) {
             i++
             classes[prop] = `${PREFIX}-${counter}-${i}`
-            style.innerText += toString(classes[prop], css[prop])
+            style.innerText += cssToStr(classes[prop], css[prop])
         }
         document.head.appendChild(style)
         setClasses(classes)
