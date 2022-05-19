@@ -2,7 +2,7 @@
 
 ![](https://github.com/twharmon/fluid/workflows/Test/badge.svg)
 
-A css-in-js solution for React.
+An __experimental__ css-in-js solution for React.
 
 ## Usage
 Basic example:
