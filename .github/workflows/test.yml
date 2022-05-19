@@ -1,7 +1,7 @@
-name: Publish Package to npmjs
+name: Test
 on: pull_request
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
