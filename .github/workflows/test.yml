@@ -13,3 +13,8 @@ jobs:
         run: |
           npm ci
           npm test
+      - name: Test theme
+        working-directory: ./packages/theme
+        run: |
+          npm ci
+          npm test
