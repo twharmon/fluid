@@ -4,7 +4,7 @@ import { CSSProps, Styles } from './useClasses'
 const CAMEL_CASE_RE = new RegExp('([a-z])([A-Z])', 'g')
 const PASCAL_CASE_RE = new RegExp('^([A-Z])', 'g')
 
-function camel2kebab(s: string): string {
+function camelTokebab(s: string): string {
     return s.replace(PASCAL_CASE_RE, '-$1').replace(CAMEL_CASE_RE, '$1-$2').toLowerCase()
 }
 
@@ -17,7 +17,7 @@ export function cssToStr(name: string, props: CSSProps, prefix = '.') {
             adds.push({ prop: `${propKeys[i].slice(1)}`, val: props[propKeys[i]] })
         } else {
             const val = props[propKeys[i] as keyof CSSProperties]
-            innerText += `${camel2kebab(propKeys[i])}:${val};`
+            innerText += `${camelTokebab(propKeys[i])}:${val};`
         }
     }
     innerText += `}`
