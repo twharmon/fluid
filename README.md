@@ -10,7 +10,7 @@ Basic example:
 ### App.tsx
 
 ```tsx
-import { useClasses, useGlobalStyles, createStyles } from '@twharmon/fluid-css-in-js'
+import { useClasses, createStyles } from '@twharmon/fluid-css-in-js'
 import { useTheme, Theme, darken } from '@twharmon/fluid-theme'
 
 const makeStyles = (theme: Theme) => createStyles({
