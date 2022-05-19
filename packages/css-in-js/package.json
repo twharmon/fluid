@@ -1,6 +1,6 @@
 {
   "name": "@twharmon/fluid-css-in-js",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "CSS in JS library",
   "main": "dist/index.js",
   "module": "dist/index.js",
