@@ -24,7 +24,7 @@ export function desaturate(color: string, coefficient: number) {
 export function saturate(color: string, coefficient: number) {
     let [r, g, b] = hexToRgb(color)
     const [h, s, l] = rgbToHsl(r, g, b);
-    [r, g, b] = hslToRgb(h, Math.min(1, s / (1 - coefficient)), l)
+    [r, g, b] = hslToRgb(h, Math.min(1, s + (1 - s) * coefficient), l)
     return rgbToStr(r, g, b)
 }
 
