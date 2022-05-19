@@ -12,8 +12,8 @@ export default Theme
 
 const defaultTheme: Theme = {
     palette: {
-        primary: '#666666',
-        accent: 'white',
+        primary: '#009688',
+        accent: '#9c27b0',
     },
     mode: 'light',
     rounded: 0,

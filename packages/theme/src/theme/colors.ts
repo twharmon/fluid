@@ -8,9 +8,9 @@ export function darken(color: string, coefficient: number) {
 
 export function lighten(color: string, coefficient: number) {
     let [r, g, b] = hexToRgb(color)
-    r = Math.min(255, Math.round(r / (1 - coefficient)))
-    g = Math.min(255, Math.round(g / (1 - coefficient)))
-    b = Math.min(255, Math.round(b / (1 - coefficient)))
+    r = Math.min(255, Math.round(r + (255 - r) * coefficient))
+    g = Math.min(255, Math.round(g + (255 - g) * coefficient))
+    b = Math.min(255, Math.round(b + (255 - b) * coefficient))
     return rgbToStr(r, g, b)
 }
 
