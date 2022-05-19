@@ -11,7 +11,7 @@ Basic example:
 
 ```tsx
 import { useClasses, useGlobalStyles, createStyles } from '@twharmon/fluid-css-in-js'
-import { useTheme, Theme } from '@twharmon/fluid-theme'
+import { useTheme, Theme, darken } from '@twharmon/fluid-theme'
 
 const makeStyles = (theme: Theme) => createStyles({
     root: {
